@@ -11,10 +11,17 @@ const Viewer = () => {
     WebViewer(
       {
         path: '/webviewer/lib',
+        
       },
       viewer.current
     ).then((instance) => {
       setInstance(instance);
+      instance.enableFeatures([
+        'ThumbnailMultiselect',
+        'MultipleViewerMerging',
+      ]);
+      instance.enableElements(['documentControl']);
+      instance.openElements(['leftPanel']);
     });
   }, []);
 
